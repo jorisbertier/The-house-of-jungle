@@ -2,12 +2,14 @@ export const plantList = [
 	{
 		name: 'monstera',
 		category: 'classique',
-		id: '1ed'
+		id: '1ed',
+		isBestSale: true
+
 	},
 	{
 		name: 'ficus lyrata',
 		category: 'classique',
-		id: '2ab'
+		id: '2ab',
 	},
 	{
 		name: 'pothos argenté',
