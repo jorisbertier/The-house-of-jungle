@@ -42,5 +42,5 @@ function ShoppingList() {
 		</div>
 	)
 }
-//coment
+//coments
 export default ShoppingList
