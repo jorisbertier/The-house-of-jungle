@@ -15,7 +15,7 @@
 //         </ul>
 //     )
 // }
-//commit
+//commits
 
 import { plantList } from '../datas/plantList'
 
