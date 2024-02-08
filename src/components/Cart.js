@@ -16,5 +16,5 @@ function Cart() {
 		</div>
 	)
 }
-//card
+//cards
 export default Cart
