@@ -8,8 +8,4 @@ function Banner() {
             </div>
 }
 
-function Test() {
-    return <div className='Test'>Salut le monde</div>
-}
-
 export default Banner
