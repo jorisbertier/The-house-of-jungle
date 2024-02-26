@@ -10,11 +10,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
-const numbers = [1, 2, 3, 4]
-const doubles = numbers.map(x => x * 2) 
-
-console.log(numbers);
-console.log(doubles);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
