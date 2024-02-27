@@ -27,8 +27,8 @@ function ShoppingList() {
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
 		[]
 	)
-	
-	console.log(plantListCategories);
+
+
 	return <div>
 
 				<ul>
@@ -38,7 +38,7 @@ function ShoppingList() {
 					{plantList.map((plant, index) =>(
 						<li key={`${plant.name}-${index}`} className='lmj-plant-item'>
 							{/* {plant.name} {plant.isBestSale ? <span>🔥</span>: null } */}
-							{plant.name} {plant.isBestSale && <span>🔥</span>}
+							{plant.name} {plant.isBestSale && <span>🔥</span>} {plant.isSpecialOffer && <span className='lmj-sales'>En soldes</span>}
 							</li>
 					))}
 				</ul>
