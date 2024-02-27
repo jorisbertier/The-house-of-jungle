@@ -1,21 +1,5 @@
 import {plantList} from '../datas/plantList'
 
-
-function ShoppingList() {
-	// const plantListCategories = plantList.map(plants => plants.category)
-	const plantListCategories = plantList.reduce(
-		(acc, plant) =>
-			acc.includes(plant.category) ? acc : acc.concat(plant.category),
-		[]
-	)
-	
-	console.log(plantListCategories);
-	return <ul>
-				{plantListCategories.map((category, index) => (<li key={`${category}-${index}`}>{category}</li>))}
-			</ul>
-
-}
-
 // const plantList = [
 //     'monstera',
 //     'ficus lyrata',
@@ -33,6 +17,31 @@ function ShoppingList() {
 //         </ul>
 //     )
 // }
+
+
+function ShoppingList() {
+	// const plantListCategories = plantList.map(plants => plants.category)
+	const plantListCategories = plantList.reduce(
+		(acc, plant) =>
+			acc.includes(plant.category) ? acc : acc.concat(plant.category),
+		[]
+	)
+	
+	console.log(plantListCategories);
+	return <div>
+
+				<ul>
+					{plantListCategories.map((category, index) => (<li key={`${category}-${index}`}>{category}</li>))}
+				</ul>
+				<ul>
+					{plantList.map((plant, index) =>(
+						<li key={`${plant.name}-${index}`}>{plant.name}</li>
+					))}
+				</ul>
+			</div>
+
+}
+
 
 // function ShoppingList() {
 //     const categories = plantList.reduce(
