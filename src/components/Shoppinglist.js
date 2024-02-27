@@ -1,4 +1,5 @@
 import {plantList} from '../datas/plantList'
+import '../styles/ShoppingList.css'
 
 // const plantList = [
 //     'monstera',
@@ -35,8 +36,9 @@ function ShoppingList() {
 				</ul>
 				<ul>
 					{plantList.map((plant, index) =>(
-						<li key={`${plant.name}-${index}`}>
-							{plant.name} {plant.isBestSale ? <span>🔥</span>:<span>👎</span>}
+						<li key={`${plant.name}-${index}`} className='lmj-plant-item'>
+							{/* {plant.name} {plant.isBestSale ? <span>🔥</span>: null } */}
+							{plant.name} {plant.isBestSale && <span>🔥</span>}
 							</li>
 					))}
 				</ul>
