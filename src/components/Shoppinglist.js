@@ -2,7 +2,17 @@ import {plantList} from '../datas/plantList'
 
 
 function ShoppingList() {
-	console.log(plantList)
+	// const plantListCategories = plantList.map(plants => plants.category)
+	const plantListCategories = plantList.reduce(
+		(acc, plant) =>
+			acc.includes(plant.category) ? acc : acc.concat(plant.category),
+		[]
+	)
+	
+	console.log(plantListCategories);
+	return <ul>
+				{plantListCategories.map((category, index) => (<li key={`${category}-${index}`}>{category}</li>))}
+			</ul>
 
 }
 
