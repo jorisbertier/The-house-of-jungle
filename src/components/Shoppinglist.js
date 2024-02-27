@@ -1,5 +1,6 @@
 import {plantList} from '../datas/plantList'
 import '../styles/ShoppingList.css'
+import CareScale from './CareScale'
 
 // const plantList = [
 //     'monstera',
@@ -40,43 +41,19 @@ function ShoppingList() {
 							{/* {plant.name} {plant.isBestSale ? <span>🔥</span>: null } */}
 							{plant.name} {plant.isBestSale && <span>🔥</span>}
 							{plant.isSpecialOffer && <span className='lmj-sales'>En soldes</span>}
+							<CareScale careType='water' scaleValue={plant.water} />
+							<CareScale careType='light' scaleValue={plant.light} />
 							
 						</li>
 					))}
 				</ul>
-				<ul>
+				{/* <ul>
 					{plantList.map((plant, index) =>(
 						<li key={`${plant}-${index}`}>{plant.offerMoment ? <span>Oui</span>: <span>Non</span>}</li>
 					))}
-				</ul>
+				</ul> */}
 			</div>
 
 }
 
-
-// function ShoppingList() {
-//     const categories = plantList.reduce(
-// 		(acc, plant) =>
-// 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
-// 		[]
-// 	)
-
-// 	return (
-// 		<div>
-// 			<ul>
-// 				{categories.map((cat) => (
-// 					<li key={cat}>{cat}</li>
-// 				))}
-// 			</ul>
-// 			<ul>
-// 				{plantList.map((plant) => (
-// 					<li key={plant.id}>
-//                         {plant.isBestSale ? <span>{plant.name}🔥</span> : <span>{plant.name}</span>}
-//                     </li>
-// 				))}
-// 			</ul>
-// 		</div>
-// 	)
-// }
-//comentsss
 export default ShoppingList
