@@ -10,8 +10,8 @@ function App() {
 				<img src={logo} alt='La maison jungle' className='lmj-logo' />
 				<h1 className='lmj-title'>La maison jungle</h1>
 	</Banner>
-  <Article title="Earth"/>
-  <Article title="Moon"/>
+  <Article isLoading disable title="Earth"/>
+  <Article  disable title="Moon"/>
   <Cart />
   <Shoppinglist />
   </>)
