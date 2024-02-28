@@ -30,11 +30,16 @@ function ShoppingList() {
 		[]
 	)
 
+	// function handleClick() {
+	// 	alert('Bienvenue')
+	// }
+
 	function handleClick() {
-		alert('Bienvenue')
+		console.log('Ceci est un test')
 	}
+	const test = 'test';
 	return <div>
-				<button onClick={handleClick}>Click me !</button>
+				<button onClick={handleClick}>{test}</button>
 				<ul>
 					{plantListCategories.map((category, index) => (<li key={`${category}-${index}`}>{category}</li>))}
 				</ul>
