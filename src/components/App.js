@@ -3,6 +3,7 @@ import Cart from './Cart'
 import Shoppinglist from './Shoppinglist';
 import logo from '../assets/logo.png'
 import Article from './Article'
+import QuestionForm from './QuestionForm';
 
 function App() {
   return (<>
@@ -14,6 +15,7 @@ function App() {
   <Article  disable title="Moon"/>
   <Cart />
   <Shoppinglist />
+  <QuestionForm />
   </>)
 }
 

@@ -30,8 +30,8 @@ function ShoppingList() {
 		[]
 	)
 
-	function handleClick(plantName) {
-		alert(`Vous voulez achetetr 1 ${plantName}`)
+	function handleClick(e) {
+		alert(e)
 	}
 
 
