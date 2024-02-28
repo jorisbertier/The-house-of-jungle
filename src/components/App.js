@@ -4,6 +4,7 @@ import Shoppinglist from './Shoppinglist';
 import logo from '../assets/logo.png'
 import Article from './Article'
 import QuestionForm from './QuestionForm';
+import Footer from './Footer';
 
 function App() {
   return (<>
@@ -16,6 +17,7 @@ function App() {
   <Cart />
   <Shoppinglist />
   <QuestionForm />
+  <Footer />
   </>)
 }
 

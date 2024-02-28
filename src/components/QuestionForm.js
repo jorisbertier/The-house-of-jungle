@@ -32,8 +32,9 @@ function QuestionForm() {
                 value={inputValue}
                 onChange={(e) => checkValue(e.target.value)}
             />
-             {isInputError && <div>🔥 Vous n'avez pas le droit d'utiliser la lettre "f" ici.</div>}
+            {isInputError && <div>🔥 Vous n'avez pas le droit d'utiliser la lettre "f" ici.</div>}
             <button onClick={() => alert(inputValue)}>Alertez moi</button>
+            
         </div>
     )
 }
