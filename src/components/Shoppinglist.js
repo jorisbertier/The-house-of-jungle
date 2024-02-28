@@ -30,13 +30,11 @@ function ShoppingList() {
 		[]
 	)
 
-	// function handleClick() {
-	// 	alert('Bienvenue')
-	// }
-
-	function handleClick() {
-		console.log('Ceci est un test')
+	function handleClick(plantName) {
+		alert(`Vous voulez achetetr 1 ${plantName}`)
 	}
+
+
 	const test = 'test';
 	return <div>
 				<button onClick={handleClick}>{test}</button>
@@ -45,7 +43,7 @@ function ShoppingList() {
 				</ul>
 				<ul>
 					{plantList.map((plant, index) =>(
-						<li key={`${plant.name}-${index}`} className='lmj-plant-item'>
+						<li key={`${plant.name}-${index}`} className='lmj-plant-item' onClick={() => handleClick(plant.name)}>
 							{/* {plant.name} {plant.isBestSale ? <span>🔥</span>: null } */}
 							{plant.name} {plant.isBestSale && <span>🔥</span>}
 							{plant.isSpecialOffer && <span className='lmj-sales'>En soldes</span>}
