@@ -33,6 +33,7 @@ function ShoppingList() {
 	function handleClick(e) {
 		alert(e)
 	}
+	
 
 
 	const test = 'test';

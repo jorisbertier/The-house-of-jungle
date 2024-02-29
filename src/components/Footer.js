@@ -7,9 +7,13 @@ function Footer() {
     const valueProhiben = inputValue.includes('@');
 
     function checkValue(value) {
-        if(!value.includes('a')) {
+        // if(!value.includes('a')) {
             setInputValue(value)
-        }
+        // }
+    }
+
+    function blur(e) {
+        e.stopPropagation();
     }
 
 	return (
