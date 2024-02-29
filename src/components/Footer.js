@@ -2,18 +2,18 @@ import { useState } from 'react'
 import '../styles/Footer.css'
 
 function Footer() {
-	const [inputValue, setInputValue] = useState('')
+	const [inputValue, setInputValue] = useState("")
 
     const valueProhiben = inputValue.includes('@');
 
-    function checkValue(value) {
-        // if(!value.includes('a')) {
-            setInputValue(value)
-        // }
+    function handleInput(e) {
+        setInputValue(e.target.value)
     }
 
-    function blur(e) {
-        e.stopPropagation();
+    function handleBlur() {
+		if (!inputValue.includes('@')) {
+			alert("Attention, il n'y a pas d'@, ceci n'est pas une adresse valide 😥")
+		}
     }
 
 	return (
@@ -22,9 +22,8 @@ function Footer() {
 				Pour les passionné·e·s de plantes 🌿🌱🌵
 			</div>
 			<div className='lmj-footer-elem'>Laissez-nous votre mail :</div>
-            <input type="text" value={inputValue} onChange={(e) => checkValue(e.target.value)}></input>
+            <input type="text" value={inputValue} onChange={handleInput} onBlur={handleBlur} placeholder="Entrez votre email "></input>
             {valueProhiben && <span>La valeur @ est interdite</span>}
-            <button onClick={(e) => alert(inputValue)}>Envoyer</button>
 		</footer>
 	)
 }
