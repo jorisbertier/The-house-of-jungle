@@ -1,6 +1,6 @@
 import {plantList} from '../datas/plantList'
 import '../styles/ShoppingList.css'
-import CareScale from './CareScale'
+// import CareScale from './CareScale'
 import PlantItem from './PlantItem'
 
 // const plantList = [
@@ -37,25 +37,26 @@ function ShoppingList() {
 
 
 	const test = 'test';
-	return <div>
+	return <div className='lmj-shopping-list'>
 				<button onClick={handleClick}>{test}</button>
 				<ul>
 					{plantListCategories.map((category, index) => (<li key={`${category}-${index}`}>{category}</li>))}
 				</ul>
-				<ul>
+				{/* <ul>
 					{plantList.map((plant, index) =>(
 						<li key={`${plant.name}-${index}`} className='lmj-plant-item' onClick={() => handleClick(plant.name)}>
-							{/* {plant.name} {plant.isBestSale ? <span>🔥</span>: null } */}
+							
+							{plant.name} {plant.isBestSale ? <span>🔥</span>: null }
 							{plant.name} {plant.isBestSale && <span>🔥</span>}
 							{plant.isSpecialOffer && <span className='lmj-sales'>En soldes</span>}
 							<CareScale careType='water' scaleValue={plant.water} />
 							<CareScale careType='light' scaleValue={plant.light} />
 						</li>
 					))}
-				</ul>
+				</ul> */}
 				<ul className='lmj-plant-list'>
 					{plantList.map(({id, name, cover, water, light}) =>(
-						<PlantItem id={id} name={name} water={water}/>
+						<PlantItem id={id} name={name} cover={cover} water={water} key={id}/>
 					))}
 				</ul>
 				
