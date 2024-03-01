@@ -2,6 +2,7 @@ import {plantList} from '../datas/plantList'
 import '../styles/ShoppingList.css'
 // import CareScale from './CareScale'
 import PlantItem from './PlantItem'
+import Categories from './Categories'
 
 // const plantList = [
 //     'monstera',
@@ -22,7 +23,7 @@ import PlantItem from './PlantItem'
 // }
 
 
-function ShoppingList() {
+function ShoppingList({ cart, updateCart }) {
 	// const plantListCategories = plantList.map(plants => plants.category)
 	const plantListCategories = plantList.reduce(
 		(acc, plant) =>
@@ -33,15 +34,32 @@ function ShoppingList() {
 	function handleClick(e) {
 		alert(e)
 	}
+
+	function addToCart(name, price) {
+		console.log(...cart)
+		const currentPlantSaved = cart.find((plant) => plant.name === name)
+		if (currentPlantSaved) {
+			const cartFilteredCurrentPlant = cart.filter(
+				(plant) => plant.name !== name
+			)
+			updateCart([
+				...cartFilteredCurrentPlant,
+				{ name, price, amount: currentPlantSaved.amount + 1 }
+			])
+		} else {
+			updateCart([...cart, { name, price, amount: 1 }])
+		}
+	}
 	
 
 
 	const test = 'test';
 	return <div className='lmj-shopping-list'>
 				<button onClick={handleClick}>{test}</button>
-				<ul>
+				{/* <ul>
 					{plantListCategories.map((category, index) => (<li key={`${category}-${index}`}>{category}</li>))}
-				</ul>
+				</ul> */}
+				<Categories />
 				{/* <ul>
 					{plantList.map((plant, index) =>(
 						<li key={`${plant.name}-${index}`} className='lmj-plant-item' onClick={() => handleClick(plant.name)}>
@@ -55,10 +73,19 @@ function ShoppingList() {
 					))}
 				</ul> */}
 				<ul className='lmj-plant-list'>
-					{plantList.map(({id, name, cover, water, light}) =>(
-						<PlantItem id={id} name={name} cover={cover} water={water} key={id}/>
-					))}
-				</ul>
+				{plantList.map(({ id, cover, name, water, light, price }) => (
+					<div key={id}>
+						<PlantItem
+							cover={cover}
+							name={name}
+							water={water}
+							light={light}
+							price={price}
+						/>
+						<button onClick={() => addToCart(name, price)}>Ajouter</button>
+					</div>
+				))}
+			</ul>
 				
 			</div>
 
