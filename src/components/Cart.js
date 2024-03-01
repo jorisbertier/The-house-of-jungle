@@ -1,7 +1,7 @@
 import '../styles/Cart.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-function Cart({cart, updateCart}) {
+function Cart({cart, updateCart, activeCategory, setActiveCategory}) {
     
 	const [isOpen, setIsOpen] = useState(false)
 	const total = cart.reduce(
@@ -9,7 +9,9 @@ function Cart({cart, updateCart}) {
 		0
 	)
 	// const [clearBasket, setClearBasket] = useState(0)
-
+    useEffect(() => {
+			document.title = `LMJ: ${total}€ d'achats`
+    }, [total])
     return  isOpen ? (
         <div className='lmj-cart'>
 			<button onClick={() => setIsOpen(false)} className='lmj-cart-toggle-button'>Fermer</button>
