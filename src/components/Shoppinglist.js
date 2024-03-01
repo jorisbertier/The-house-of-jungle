@@ -3,6 +3,7 @@ import '../styles/ShoppingList.css'
 // import CareScale from './CareScale'
 import PlantItem from './PlantItem'
 import Categories from './Categories'
+import { useState } from 'react'
 
 // const plantList = [
 //     'monstera',
@@ -25,11 +26,18 @@ import Categories from './Categories'
 
 function ShoppingList({ cart, updateCart }) {
 	// const plantListCategories = plantList.map(plants => plants.category)
-	const plantListCategories = plantList.reduce(
+	// const plantListCategories = plantList.reduce(
+	// 	(acc, plant) =>
+	// 		acc.includes(plant.category) ? acc : acc.concat(plant.category),
+	// 	[]
+	// )
+	const categories = plantList.reduce(
 		(acc, plant) =>
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
 		[]
 	)
+
+	const [activeCategory, setActiveCategory] = useState('')
 
 	function handleClick(e) {
 		alert(e)
@@ -59,7 +67,7 @@ function ShoppingList({ cart, updateCart }) {
 				{/* <ul>
 					{plantListCategories.map((category, index) => (<li key={`${category}-${index}`}>{category}</li>))}
 				</ul> */}
-				<Categories />
+				<Categories categories={categories} setActiveCategory={setActiveCategory} activeCategory={activeCategory}/>
 				{/* <ul>
 					{plantList.map((plant, index) =>(
 						<li key={`${plant.name}-${index}`} className='lmj-plant-item' onClick={() => handleClick(plant.name)}>
@@ -73,7 +81,9 @@ function ShoppingList({ cart, updateCart }) {
 					))}
 				</ul> */}
 				<ul className='lmj-plant-list'>
-				{plantList.map(({ id, cover, name, water, light, price }) => (
+				{plantList.map(({ id, cover, name, water, light, price, category }) => 
+				!activeCategory || activeCategory === category ? (
+					
 					<div key={id}>
 						<PlantItem
 							cover={cover}
@@ -84,7 +94,8 @@ function ShoppingList({ cart, updateCart }) {
 						/>
 						<button onClick={() => addToCart(name, price)}>Ajouter</button>
 					</div>
-				))}
+				) :null
+				)}
 			</ul>
 				
 			</div>
