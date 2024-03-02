@@ -6,7 +6,7 @@ import QuestionForm from './QuestionForm';
 import Footer from './Footer';
 import Layout from './Layout';
 import ShoppingList from './ShoppingList'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // function App() {
 //   const [cart, updateCart] = useState([])
@@ -22,7 +22,16 @@ import { useState } from 'react';
 //             <Footer />
 //   </>)
   function App() {
-    const [cart, updateCart] = useState([])
+    // const [cart, updateCart] = useState([])
+
+    const savedCart = localStorage.getItem('cart')
+
+    const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : [])
+    
+    useEffect(() => {
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
+
     return (
       <div>
         <Banner>
